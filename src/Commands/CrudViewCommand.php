@@ -138,7 +138,7 @@ class CrudViewCommand extends Command
             
             $formHeadingHtml .= '<th>'; 
             if(config('crudgenerator.kyslik_sortable') == true) $formHeadingHtml .= '@sortablelink("' . $field . '","' . $label . '")'; 
-            else $formHeadingHtml .=$label 
+            else $formHeadingHtml .=$label; 
             $formHeadingHtml .= '</th>';
 
             if ($i == 0) {

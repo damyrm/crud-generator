@@ -135,7 +135,11 @@ class CrudViewCommand extends Command
 
             $field = $value['name'];
             $label = ucwords(str_replace('_', ' ', $field));
-            $formHeadingHtml .= '<th>' . $label . '</th>';
+            
+            $formHeadingHtml .= '<th>'; 
+            if(config('crudgenerator.kyslik_sortable') == true) $formHeadingHtml .= '@sortablelink("' . $field . '","' . $label . '")'; 
+            else $formHeadingHtml .=$label 
+            $formHeadingHtml .= '</th>';
 
             if ($i == 0) {
                 $formBodyHtml .= '<td><a href="{{ url(\'%%routeGroup%%%%crudName%%\', $item->id) }}">{{ $item->' . $field . ' }}</a></td>';
